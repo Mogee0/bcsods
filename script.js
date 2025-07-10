@@ -36,17 +36,32 @@ function makePayment() {
     return;
   }
 
-  const upiID = "vmtamilnadu1-1@okaxis"; // Update with your UPI
+  const upiID = "vmtamilnadu1-1@okaxis";
   const payeeName = "Bhavani Catering Service";
   const orderCode = generateOrderCode();
   const amount = total.toFixed(2);
   const upiUrl = `upi://pay?pa=${upiID}&pn=${payeeName}&am=${amount}&cu=INR&tn=Order%20${orderCode}`;
 
-  // Redirect to UPI link
   window.open(upiUrl, "_blank");
 
-  // Prepare order details
-  const orderDetails = cart.map(c => `${c.item} (₹${c.price})`).join(', ');
+  // Save temp data for use on confirm
+  window.pendingOrder = {
+    orderCode,
+    amount,
+    orderDetails: cart.map(c => `${c.item} (₹${c.price})`).join(', ')
+  };
+
+  // Show confirm button
+  document.getElementById('confirm-btn').style.display = 'inline-block';
+}
+
+
+ // Redirect to UPI link
+window.open(upiUrl, "_blank");
+
+// Show confirm button
+document.getElementById('confirm-btn').style.display = 'inline-block';
+
 
   // Show customer-only notification
   const customerNote = document.getElementById('notify-msg');
