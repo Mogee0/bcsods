@@ -5,6 +5,9 @@ function addToCart(item, price) {
   cart.push({ item, price });
   total += price;
   updateCart();
+
+  // Enable payment section
+  document.getElementById('payment').style.display = 'block';
 }
 
 function updateCart() {
@@ -33,24 +36,37 @@ function makePayment() {
     return;
   }
 
-  const upiID = "vmtamilnadu1-1@okaxis"; // Change this to your shop's UPI ID
+  const upiID = "vmtamilnadu1-1@okaxis"; // Update with your UPI
   const payeeName = "Bhavani Catering Service";
   const orderCode = generateOrderCode();
   const amount = total.toFixed(2);
   const upiUrl = `upi://pay?pa=${upiID}&pn=${payeeName}&am=${amount}&cu=INR&tn=Order%20${orderCode}`;
 
-  const notify = document.getElementById('notify-msg');
+  // Redirect to UPI link
+  window.open(upiUrl, "_blank");
+
+  // Prepare order details
   const orderDetails = cart.map(c => `${c.item} (₹${c.price})`).join(', ');
 
-  notify.innerHTML = `✅ Customer: Your order is placed with total ₹${amount}.<br>
-                      🧾 Your Order Code: <strong>${orderCode}</strong><br>
-                      🔗 <a href="${upiUrl}" target="_blank">Click here to complete UPI Payment</a><br><br>
-                      ✅ Shopkeeper: New order received for ₹${amount}.<br>
-                      🧾 Order Code: <strong>${orderCode}</strong><br>
-                      🍽 Ordered Items: ${orderDetails}`;
+  // Show customer-only notification
+  const customerNote = document.getElementById('notify-msg');
+  customerNote.innerHTML = `✅ <strong>Customer:</strong><br>
+    Order Code: <strong>${orderCode}</strong><br>
+    Total Amount: ₹${amount}<br>
+    Items: ${orderDetails}<br>
+    Thank you! Please show this to the shopkeeper after payment.`;
 
   document.getElementById('notification').style.display = 'block';
+
+  // Show shopkeeper notification separately (example: log it for now)
+  console.log(`📦 Shopkeeper Notification:
+Order Code: ${orderCode}
+Amount: ₹${amount}
+Items: ${orderDetails}`);
+
+  // Reset
   cart = [];
   total = 0;
   updateCart();
+  document.getElementById('payment').style.display = 'none';
 }
