@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavani Catering Service</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bhavani Catering Service</h1>
+<p>Taste says the deliciousness of the Food </p>
+  </header>
+  <nav>
+    <a href="#menu">🛍️ Product List</a>
+    <a href="#cart">🛒 Cart</a>
+    <a href="#payment">💳 Payment</a>
+    <a href="#notification">📩 Notification</a>
+  </nav>
+
+  <div class="container">
+    <h2 id="menu">Menu - Snacks & Breakfast</h2>
+    <div class="menu-item"><span>Idli - ₹10</span><button onclick="addToCart('Idli', 10)">Add to Cart</button></div>
+    <div class="menu-item"><span>Dosa - ₹20</span><button onclick="addToCart('Dosa', 20)">Add to Cart</button></div>
+    <div class="menu-item"><span>Vada - ₹15</span><button onclick="addToCart('Vada', 15)">Add to Cart</button></div>
+    <div class="menu-item"><span>Pongal - ₹30</span><button onclick="addToCart('Pongal', 30)">Add to Cart</button></div>
+
+    <div class="cart" id="cart">
+      <h2>Cart</h2>
+      <ul id="cart-list"></ul>
+      <p><strong>Total: ₹<span id="total">0</span></strong></p>
+    </div>
+
+    <div class="payment" id="payment">
+      <h2>Select Payment Method</h2>
+      <label><input type="radio" name="payment" value="UPI"> UPI</label><br>
+      <label><input type="radio" name="payment" value="Credit Card"> Credit Card</label><br>
+      <label><input type="radio" name="payment" value="Cash on Delivery"> Cash on Delivery</label><br><br>
+      <button onclick="makePayment()">Make Payment</button>
+    </div>
+
+    <div class="notification" id="notification" style="display:none">
+      <h2>Order Notification</h2>
+      <p id="notify-msg"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
