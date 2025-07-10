@@ -61,6 +61,33 @@ window.open(upiUrl, "_blank");
 
 // Show confirm button
 document.getElementById('confirm-btn').style.display = 'inline-block';
+function confirmPayment() {
+  const { orderCode, amount, orderDetails } = window.pendingOrder;
+
+  // Customer Notification
+  const customerNote = document.getElementById('notify-msg');
+  customerNote.innerHTML = `✅ <strong>Customer:</strong><br>
+    Order Code: <strong>${orderCode}</strong><br>
+    Total Amount: ₹${amount}<br>
+    Items: ${orderDetails}<br>
+    Thank you! Please show this to the shopkeeper.`;
+
+  document.getElementById('notification').style.display = 'block';
+
+  // Shopkeeper LocalStorage Notification
+  localStorage.setItem('shop_order', JSON.stringify({
+    orderCode,
+    amount,
+    orderDetails
+  }));
+
+  // Reset cart
+  cart = [];
+  total = 0;
+  updateCart();
+  document.getElementById('payment').style.display = 'none';
+  document.getElementById('confirm-btn').style.display = 'none';
+}
 
 
   // Show customer-only notification
