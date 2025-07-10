@@ -33,42 +33,19 @@ function makePayment() {
     return;
   }
 
-  const paymentMethod = prompt("Choose your payment option:\n1. GPay\n2. PhonePe\n3. Paytm\n4. Enter UPI ID", "1");
-  let paymentOption;
-
-  switch (paymentMethod) {
-    case "1":
-      paymentOption = "GPay";
-      window.open("https://pay.google.com", "_blank");
-      break;
-    case "2":
-      paymentOption = "PhonePe";
-      window.open("https://www.phonepe.com", "_blank");
-      break;
-    case "3":
-      paymentOption = "Paytm";
-      window.open("https://paytm.com", "_blank");
-      break;
-    case "4":
-      const upiID = prompt("Enter your UPI ID:");
-      if (!upiID) {
-        alert("Invalid UPI ID");
-        return;
-      }
-      paymentOption = `Custom UPI - ${upiID}`;
-      break;
-    default:
-      alert("Invalid payment option selected");
-      return;
-  }
-
+  const upiID = "vmtamilnadu1-1@okaxis"; // Change this to your shop's UPI ID
+  const payeeName = "Bhavani Catering Service";
   const orderCode = generateOrderCode();
+  const amount = total.toFixed(2);
+  const upiUrl = `upi://pay?pa=${upiID}&pn=${payeeName}&am=${amount}&cu=INR&tn=Order%20${orderCode}`;
+
   const notify = document.getElementById('notify-msg');
   const orderDetails = cart.map(c => `${c.item} (₹${c.price})`).join(', ');
 
-  notify.innerHTML = `✅ Customer: Your order is placed with total ₹${total} via <strong>${paymentOption}</strong>.<br>
-                      🧾 Your Order Code: <strong>${orderCode}</strong><br><br>
-                      ✅ Shopkeeper: New order received for ₹${total}.<br>
+  notify.innerHTML = `✅ Customer: Your order is placed with total ₹${amount}.<br>
+                      🧾 Your Order Code: <strong>${orderCode}</strong><br>
+                      🔗 <a href="${upiUrl}" target="_blank">Click here to complete UPI Payment</a><br><br>
+                      ✅ Shopkeeper: New order received for ₹${amount}.<br>
                       🧾 Order Code: <strong>${orderCode}</strong><br>
                       🍽 Ordered Items: ${orderDetails}`;
 
