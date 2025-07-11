@@ -24,8 +24,15 @@ function checkoutOrder() {
   const orderCode = generateOrderCode();
 
   // Trigger UPI Payment (replace with your actual UPI ID)
-  const upiLink = `upi://pay?pa=yourupi@bank&pn=Your%20Shop&am=${total}&cu=INR&tn=Order%20${orderCode}`;
-  window.open(upiLink, 'vmtamilnadu1-1@okaxis');
+   const upiID = "vmtamilnadu1-1@okaxis"; // Update with your UPI
+  const payeeName = "Bhavani Catering Service";
+  const orderCode = generateOrderCode();
+  const amount = total.toFixed(2);
+  const upiUrl = upi://pay?pa=${upiID}&pn=${payeeName}&am=${amount}&cu=INR&tn=Order%20${orderCode};
+
+  // Redirect to UPI link
+  window.open(upiUrl, "_blank");
+
   alert(`✅ Order Confirmed!\nOrder Code: ${orderCode}\nAmount: ₹${total}`);
 
   // Notify shopkeeper and customer (placeholder)
