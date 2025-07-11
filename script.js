@@ -30,7 +30,7 @@ function checkoutOrder() {
 
   // Trigger UPI Payment (replace with your actual UPI ID)
   const upiLink = `upi://pay?pa=yourupi@bank&pn=Your%20Shop&am=${total}&cu=INR&tn=Order%20${orderCode}`;
-  window.open(upiLink, '_blank');
+  window.open(upiLink, 'vmtamilnadu1-1@okaxis');
 
   // Clear cart
   cart = [];
