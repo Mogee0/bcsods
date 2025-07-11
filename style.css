@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: vmtamilnadu1-1@okaxis;
+  background-color: #FFFFFF;
   padding: 30px;
   color: #333;
 }
@@ -41,7 +41,8 @@ h1 {
 }
 
 .price-box {
-  font-size: 14px;color: ##FFFFFF;
+  font-size: 14px;
+    color:#AA8D6F;
 }
 
 .mrp {
