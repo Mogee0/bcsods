@@ -44,26 +44,26 @@ function checkoutOrder() {
 
   const total = cart.reduce((sum, i) => sum + i.price, 0);
   const orderCode = generateOrderCode();
-  const upiID = 'vmtamilnadu1-1@okaxis'; // ⛔ Replace with your real UPI ID
+  const upiID = 'vmtamilnadu1-1@okaxis'; // 🔁 Replace with your actual UPI ID (e.g. mogesh@ybl)
+  const name = 'BCS';
+  const note = `Order ${orderCode}`;
 
-  const upiLink = `upi://pay?pa=vmtamilnadu1-1@okaxis &pn=BCS&am= {total}&cu=INR&tn=Order%20${orderCode}`;
-  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl= {encodeURIComponent(upiLink)}`;
+  const upiURL = `upi://pay?pa=vmtamilnadu1-1@okaxis&pn=${encodeURIComponent(name)}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
+  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(upiURL)}`;
 
-  const paymentMethod = confirm("How would you like to pay?\n\nClick 'OK' for QR Code\nClick 'Cancel' for UPI App");
+  const paymentMethod = confirm("How would you like to pay?\n\nOK = Show QR Code\nCancel = Open UPI App");
 
   if (paymentMethod) {
-    // Show QR Code
+    // Show QR
     document.getElementById('upiQR').src = qrURL;
     document.getElementById('orderCodeText').innerText = `🧾 Order Code: ${orderCode}`;
     document.getElementById('qr-section').style.display = 'block';
   } else {
-    // Open UPI App link
-    window.open(upiLink, '_blank');
+    // Open UPI App
+    window.open(upiURL, '_blank');
   }
 
-  console.log(`📩 Notify Shopkeeper & Customer: Order ${orderCode}, Amount ₹${total}`);
-
-  // Reset cart
+  console.log(`📩 Notify Shopkeeper & Customer: Order ${orderCode}, ₹${total}`);
   cart = [];
   updateCartDisplay();
 }
