@@ -11,9 +11,15 @@ function updateCartDisplay() {
   document.getElementById('cart').innerText = `🛒 Items in cart: ${cart.length}, Total: ₹${total}`;
 }
 
-function generateOrderCode() {
-  return 'ORD' + Math.floor(1000 + Math.random() * 9000);
+function generateOrderCode()  {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let code = '';
+  for (let i = 0; i < 6; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return code;
 }
+
 
 function checkoutOrder() {
   if (cart.length === 0) {
