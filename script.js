@@ -44,9 +44,9 @@ function checkoutOrder() {
 
   const total = cart.reduce((sum, i) => sum + i.price, 0);
   const orderCode = generateOrderCode();
-  const upiID = 'vmtamilnadu1-1@okaxis'; //
+  const upiID = 'vmtamilnadu1-1@okaxis'; // ⛔ Replace with your real UPI ID
 
-  const upiLink = `upi://pay?pa=${vmtamilnadu1-1@okaxis}&pn=Bhavani Catering Service&am=${total}&cu=INR&tn=Order%20${orderCode}`;
+  const upiLink = `upi://pay?pa=$vmtamilnadu1-1@okaxis&pn=Bhavani catering service &am=${total}&cu=INR&tn=Order%20${orderCode}`;
   const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(upiLink)}`;
 
   const paymentMethod = confirm("How would you like to pay?\n\nClick 'OK' for QR Code\nClick 'Cancel' for UPI App");
