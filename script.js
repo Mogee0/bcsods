@@ -1,4 +1,3 @@
-<script>
   let cart = [];
 
   function addToCart(item, price) {
@@ -37,7 +36,6 @@
     cart = [];
     updateCartDisplay();
   }
-</script>
 
   // Reset
   cart = [];
