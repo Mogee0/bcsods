@@ -23,15 +23,14 @@ function checkoutOrder() {
   const total = cart.reduce((sum, i) => sum + i.price, 0);
   const orderCode = generateOrderCode();
 
+  // Trigger UPI Payment (replace with your actual UPI ID)
+  const upiLink = `upi://pay?pa=yourupi@bank&pn=Your%20Shop&am=${total}&cu=INR&tn=Order%20${orderCode}`;
+  window.open(upiLink, 'vmtamilnadu1-1@okaxis');
   alert(`✅ Order Confirmed!\nOrder Code: ${orderCode}\nAmount: ₹${total}`);
 
   // Notify shopkeeper and customer (placeholder)
   console.log(`📨 Notification to Customer & Shopkeeper: Order ${orderCode}, Amount ₹${total}`);
-
-  // Trigger UPI Payment (replace with your actual UPI ID)
-  const upiLink = `upi://pay?pa=yourupi@bank&pn=Your%20Shop&am=${total}&cu=INR&tn=Order%20${orderCode}`;
-  window.open(upiLink, 'vmtamilnadu1-1@okaxis');
-
+  
   // Clear cart
   cart = [];
   updateCartDisplay();
