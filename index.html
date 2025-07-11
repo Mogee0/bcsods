@@ -19,13 +19,77 @@
   </nav>
 
   <div class="container">
-    <h2 id="menu">Menu - Breakfast</h2>
-    <div class="menu-item"><span>Idli - ₹10</span><button onclick="addToCart('Idli', 10)">Add to Cart</button></div>
-    <div class="menu-item"><span>Pongal - ₹40</span><button onclick="addToCart('Pongal', 40)">Add to Cart</button></div>
-    <div class="menu-item"><span>Poori - ₹40</span><button onclick="addToCart('Poori', 40)">Add to Cart</button></div>
-    <div class="menu-item"><span>Idiyappam - ₹40</span><button onclick="addToCart('Idiyappam', 40)">Add to Cart</button></div>
-   <div class="menu-item"><span> Medhu Vada - ₹10</span><button onclick="addToCart(' Medhu Vada', 10)">Add to Cart</button></div>
-   <div class="menu-item"><span> Masal Vada - ₹10</span><button onclick="addToCart(' Masal Vada', 10)">Add to Cart</button></div>
+     <h2>🍽️ Breakfast Menu</h2>
+
+  <div class="menu">
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Idly (2 pcs)</span>
+        <span class="price-box">
+          <span class="mrp">₹30</span>
+          <span class="discount-price">₹20</span>
+        </span>
+      </div>
+      <button class="order-btn" onclick="placeOrder('Idly (2 pcs)', 20)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Poori (2 pcs)</span>
+        <span class="price-box">
+          <span class="mrp">₹50</span>
+          <span class="discount-price">₹40</span>
+        </span>
+      </div>
+      <button class="order-btn" onclick="placeOrder('Poori (2 pcs)', 40)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Pongal</span>
+        <span class="price-box">
+          <span class="mrp">₹50</span>
+          <span class="discount-price">₹40</span>
+        </span>
+      </div>
+      <button class="order-btn" onclick="placeOrder('Pongal', 40)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Idiyappam</span>
+        <span class="price-box">
+          <span class="mrp">₹50</span>
+          <span class="discount-price">₹40</span>
+        </span>
+      </div>
+      <button class="order-btn" onclick="placeOrder('Idiyappam', 40)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Medhu Vada (1 pc)</span>
+        <span class="price-box">
+          <span class="mrp">₹15</span>
+          <span class="discount-price">₹10</span>
+        </span>
+      </div>
+      <button class="order-btn" onclick="placeOrder('Medhu Vada (1 pc)', 10)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Medhu Vada (1 pc)</span>
+        <span class="price-box">
+          <span class="mrp">₹15</span>
+          <span class="discount-price">₹10</span>
+        </span>
+      </div>
+      <button class="order-btn" onclick="placeOrder('Masal Vada (1 pc)', 10)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div id="cart"></div>
 
     <div class="cart" id="cart">
       <h2>Cart</h2>
