@@ -19,7 +19,7 @@ function updateCartDisplay() {
 
   cart.forEach((entry) => {
     const li = document.createElement("li");
-    li.textContent = `${entry.item} - ₹${entry.price}`;
+    li.textContent = `{entry.item} - ₹{entry.price}`;
     list.appendChild(li);
     total += entry.price;
   });
@@ -27,7 +27,7 @@ function updateCartDisplay() {
   cartBox.appendChild(list);
 
   const summary = document.createElement("p");
-  summary.innerHTML = `<strong>Total Items:</strong> ${cart.length} <br><strong>Total Price:</strong> ₹${total}`;
+  summary.innerHTML = `<strong>Total Items:</strong> {cart.length} <br><strong>Total Price:</strong> ₹{total}`;
   cartBox.appendChild(summary);
 }
 
@@ -46,8 +46,8 @@ function checkoutOrder() {
   const orderCode = generateOrderCode();
   const upiID = 'vmtamilnadu1-1@okaxis'; // ⛔ Replace with your real UPI ID
 
-  const upiLink = `upi://pay?pa=${vmtamilnadu1-1@okaxis}&pn=Bhavani catering service &am=${total}&cu=INR&tn=Order%20${orderCode}`;
-  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(upiLink)}`;
+  const upiLink = `upi://pay?pa={vmtamilnadu1-1@okaxis}&pn=Bhavani catering service &am={total}&cu=INR&tn=Order%20{orderCode}`;
+  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl={encodeURIComponent(upiLink)}`;
 
   const paymentMethod = confirm("How would you like to pay?\n\nClick 'OK' for QR Code\nClick 'Cancel' for UPI App");
 
@@ -61,7 +61,7 @@ function checkoutOrder() {
     window.open(upiLink, '_blank');
   }
 
-  console.log(`📩 Notify Shopkeeper & Customer: Order ${orderCode}, Amount ₹${total}`);
+  console.log(`📩 Notify Shopkeeper & Customer: Order {orderCode}, Amount ₹{total}`);
 
   // Reset cart
   cart = [];
