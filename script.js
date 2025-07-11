@@ -1,4 +1,4 @@
-  let cart = [];
+let cart = [];
 
   function addToCart(item, price) {
     cart.push({ item, price });
@@ -36,10 +36,3 @@
     cart = [];
     updateCartDisplay();
   }
-
-  // Reset
-  cart = [];
-  total = 0;
-  updateCart();
-  document.getElementById('payment').style.display = 'none';
-}
