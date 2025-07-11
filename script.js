@@ -11,14 +11,11 @@ function updateCartDisplay() {
   document.getElementById('cart').innerText = `🛒 Items in cart: ${cart.length}, Total: ₹${total}`;
 }
 
-function generateOrderCode()  {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let code = '';
-  for (let i = 0; i < 6; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return code;
+function generateOrderCode() {
+  const now = new Date();
+  return 'ORD' + now.getTime().toString().slice(-6);
 }
+
 function checkoutOrder() {
   if (cart.length === 0) {
     alert("Your cart is empty!");
@@ -27,22 +24,17 @@ function checkoutOrder() {
 
   const total = cart.reduce((sum, i) => sum + i.price, 0);
   const orderCode = generateOrderCode();
-  const upiID = 'vmtamilnadu1-1@okaxis'; // 🔁 Replace with your real UPI ID
+  const upiID = 'yourupi@bank'; // 🔁 REPLACE with your real UPI ID
 
-  // Generate UPI Payment URL
-  const upiURL = `upi://pay?pa=${vmtamilnadu1-1@okaxis}&pn=Bhavani Catering Service&am=${total}&cu=INR&tn=Order%20${orderCode}`;
-  const qrImageURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(upiURL)}`;
+  const upiLink = `upi://pay?pa=${upiID}&pn=Your%20Shop&am=${total}&cu=INR&tn=Order%20${orderCode}`;
+  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(upiLink)}`;
 
-  // Show QR
-  document.getElementById('upiQR').src = qrImageURL;
+  document.getElementById('upiQR').src = qrURL;
   document.getElementById('orderCodeText').innerText = `🧾 Order Code: ${orderCode}`;
   document.getElementById('qr-section').style.display = 'block';
 
-  // Notification logs
-  alert(`✅ Order Confirmed!\nScan the QR to pay ₹${total}`);
   console.log(`📩 Notify Shopkeeper & Customer: Order ${orderCode}, Amount ₹${total}`);
 
-  // Clear cart
   cart = [];
   updateCartDisplay();
 }
