@@ -1,81 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Breakfast Menu</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <h1>🍽️ Breakfast Menu</h1>
 
-<h1>🍽️ Breakfast Menu</h1>
-
-<div class="menu">
-  <div class="menu-item">
-    <div class="item-top">
-      <span class="item-name">Idly (2 pcs)</span>
-      <span class="price-box">
-        <span class="mrp">₹30</span>
-        <span class="discount-price">₹20</span>
-      </span>
+  <div class="menu">
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Idly (2 pcs)</span>
+        <span class="price-box"><span class="mrp">₹30</span><span class="discount-price">₹20</span></span>
+      </div>
+      <button class="order-btn" onclick="addToCart('Idly (2 pcs)', 20)">Add to Cart</button>
     </div>
-    <button class="order-btn" onclick="addToCart('Idly (2 pcs)', 20)">Add to Cart</button>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Poori (2 pcs)</span>
+        <span class="price-box"><span class="mrp">₹50</span><span class="discount-price">₹40</span></span>
+      </div>
+      <button class="order-btn" onclick="addToCart('Poori (2 pcs)', 40)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Pongal</span>
+        <span class="price-box"><span class="mrp">₹50</span><span class="discount-price">₹40</span></span>
+      </div>
+      <button class="order-btn" onclick="addToCart('Pongal', 40)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Idiyappam</span>
+        <span class="price-box"><span class="mrp">₹50</span><span class="discount-price">₹40</span></span>
+      </div>
+      <button class="order-btn" onclick="addToCart('Idiyappam', 40)">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+      <div class="item-top">
+        <span class="item-name">Medhu Vada (1 pc)</span>
+        <span class="price-box"><span class="mrp">₹15</span><span class="discount-price">₹10</span></span>
+      </div>
+      <button class="order-btn" onclick="addToCart('Medhu Vada (1 pc)', 10)">Add to Cart</button>
+    </div>
   </div>
 
-  <div class="menu-item">
-    <div class="item-top">
-      <span class="item-name">Poori (2 pcs)</span>
-      <span class="price-box">
-        <span class="mrp">₹50</span>
-        <span class="discount-price">₹40</span>
-      </span>
-    </div>
-    <button class="order-btn" onclick="addToCart('Poori (2 pcs)', 40)">Add to Cart</button>
+  <div id="cart"></div>
+
+  <div id="checkout">
+    <button onclick="checkoutOrder()">Proceed to Payment</button>
   </div>
 
-  <div class="menu-item">
-    <div class="item-top">
-      <span class="item-name">Pongal</span>
-      <span class="price-box">
-        <span class="mrp">₹50</span>
-        <span class="discount-price">₹40</span>
-      </span>
-    </div>
-    <button class="order-btn" onclick="addToCart('Pongal', 40)">Add to Cart</button>
+  <!-- QR Code Section -->
+  <div id="qr-section">
+    <h3>Scan to Pay</h3>
+    <img id="upiQR" src="" alt="UPI QR Code" />
+    <p id="orderCodeText"></p>
   </div>
 
-  <div class="menu-item">
-    <div class="item-top">
-      <span class="item-name">Idiyappam</span>
-      <span class="price-box">
-        <span class="mrp">₹50</span>
-        <span class="discount-price">₹40</span>
-      </span>
-    </div>
-    <button class="order-btn" onclick="addToCart('Idiyappam', 40)">Add to Cart</button>
-  </div>
-
-  <div class="menu-item">
-    <div class="item-top">
-      <span class="item-name">Medhu Vada (1 pc)</span>
-      <span class="price-box">
-        <span class="mrp">₹15</span>
-        <span class="discount-price">₹10</span>
-      </span>
-    </div>
-    <button class="order-btn" onclick="addToCart('Medhu Vada (1 pc)', 10)">Add to Cart</button>
-  </div>
-</div>
-
-<div id="cart"></div>
-<div id="checkout">
-  <button onclick="checkoutOrder()">Proceed to Payment</button>
-</div>
-<div id="qr-section" style="display:none; text-align:center; margin-top: 30px;">
-  <h3>Scan to Pay</h3>
-  <img id="upiQR" src="" alt="UPI QR Code" width="200" />
-  <p id="orderCodeText"></p>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
