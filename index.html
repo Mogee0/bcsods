@@ -21,9 +21,11 @@
   <div class="container">
     <h2 id="menu">Menu - Snacks & Breakfast</h2>
     <div class="menu-item"><span>Idli - ₹10</span><button onclick="addToCart('Idli', 10)">Add to Cart</button></div>
-    <div class="menu-item"><span>Dosa - ₹20</span><button onclick="addToCart('Dosa', 20)">Add to Cart</button></div>
-    <div class="menu-item"><span>Vada - ₹15</span><button onclick="addToCart('Vada', 15)">Add to Cart</button></div>
-    <div class="menu-item"><span>Pongal - ₹30</span><button onclick="addToCart('Pongal', 30)">Add to Cart</button></div>
+    <div class="menu-item"><span>Pongal - ₹40</span><button onclick="addToCart('Pongal', 40)">Add to Cart</button></div>
+    <div class="menu-item"><span>Poori - ₹40</span><button onclick="addToCart('Poori', 40)">Add to Cart</button></div>
+    <div class="menu-item"><span>Idiyappam - ₹40</span><button onclick="addToCart('Idiyappam', 40)">Add to Cart</button></div>
+   <div class="menu-item"><span> Medhu Vada - ₹10</span><button onclick="addToCart(' Medhu Vada', 10)">Add to Cart</button></div>
+   <div class="menu-item"><span> Masal Vada - ₹10</span><button onclick="addToCart(' Masal Vada', 10)">Add to Cart</button></div>
 
     <div class="cart" id="cart">
       <h2>Cart</h2>
@@ -32,9 +34,7 @@
     </div>
 
    <div class="payment" id="payment" style="display: none;">
-      <h2>Select Payment Method</h2>
       <label><input type="radio" name="payment" value="UPI"> UPI</label><br>
-      <label><input type="radio" name="payment" value="Credit Card"> Credit Card</label><br>
        <button onclick="makePayment()">Make Payment</button>
 
  </div>
