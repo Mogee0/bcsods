@@ -1,15 +1,14 @@
 let cart = [];
 let total = 0;
 
-function addToCart(item, price) {
-  cart.push({ item, price });
-  total += price;
-  updateCart();
-
-  // Enable payment section
-  document.getElementById('payment').style.display = 'block';
-}
-
+    function placeOrder(item, price) {
+      const confirmation = confirm(`Confirm order for ${item} at ₹${price}?`);
+      if (confirmation) {
+        cart.push({ item, price });
+        updateCartDisplay();
+        triggerUPIPayment(price);
+      }
+    }
 function updateCart() {
   const list = document.getElementById('cart-list');
   list.innerHTML = '';
