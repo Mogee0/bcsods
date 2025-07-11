@@ -9,16 +9,10 @@ let total = 0;
         triggerUPIPayment(price);
       }
     }
-function updateCart() {
-  const list = document.getElementById('cart-list');
-  list.innerHTML = '';
-  cart.forEach(c => {
-    const li = document.createElement('li');
-    li.textContent = `${c.item} - ₹${c.price}`;
-    list.appendChild(li);
-  });
-  document.getElementById('total').textContent = total;
-}
+ function updateCartDisplay() {
+      let total = cart.reduce((sum, i) => sum + i.price, 0);
+      document.getElementById('cart').innerText = `🛒 Items in cart: ${cart.length}, Total: ₹${total}`;
+    }
 
 function generateOrderCode() {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
