@@ -38,20 +38,80 @@ nav a:hover {
   padding: 1rem;
 }
 
-h2 {
-  color: #333;
-}
+h2{
+      text-align: center;
+      margin-bottom: 30px;
+      color: #444;
+    }
 
-.menu-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  background: white;
-  margin-bottom: 0.5rem;
-  border-radius: 5px;
-}
+    .menu {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
 
-.cart,
+    .menu-item {
+      border-bottom: 1px dashed #ccc;
+      padding: 15px 0;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item-name {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .price-box {
+      font-size: 14px;
+    }
+
+    .mrp {
+      color: #999;
+      text-decoration: line-through;
+      margin-right: 8px;
+    }
+
+    .discount-price {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+
+    .order-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: #388E3C;
+    }
+
+    #cart {
+      text-align: center;
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #2e7d32;
+    }
+
 .payment,
 .notification {
   margin-top: 1.5rem;
