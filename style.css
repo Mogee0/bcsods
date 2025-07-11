@@ -111,7 +111,24 @@ h2{
       font-size: 18px;
       color: #2e7d32;
     }
+  #checkout {
+      text-align: center;
+      margin-top: 20px;
+    }
 
+    #checkout button {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #checkout button:hover {
+      background-color: #1976D2;
+    }
 .payment,
 .notification {
   margin-top: 1.5rem;
