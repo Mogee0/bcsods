@@ -48,8 +48,10 @@ function checkoutOrder() {
   const name = 'BCS';
   const note = `Order ${orderCode}`;
 
-  const upiURL = `upi://pay?pa=vmtamilnadu1-1@okaxis&pn=${encodeURIComponent(name)}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
-  const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(upiURL)}`;
+ const upiURL = `upi://pay?pa=$vmtamilnadu1-1@okaxis&pn=$BCS&am=${total}&cu=INR&tn=${note}`;
+const qrEncoded = encodeURIComponent(upiURL);
+const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${qrEncoded}`;
+
 
   const paymentMethod = confirm("How would you like to pay?\n\nOK = Show QR Code\nCancel = Open UPI App");
 
