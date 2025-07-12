@@ -19,7 +19,7 @@ h1 {
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   background-color: #FFEEA9; /* 👈 your custom menu background color */
-  color: #fff; /* optional: makes text stand out better */
+  color:  #444; /* optional: makes text stand out better */
 }
 
 .menu-item {
