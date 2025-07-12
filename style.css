@@ -55,6 +55,7 @@ h1 {
 
 .discount-price {
   color: #2f5249;
+    margin-right: 12px;
   font-weight: bold;
 }
 
