@@ -48,7 +48,7 @@ function checkoutOrder() {
   const name = 'BCS';
   const note = `Order ${orderCode}`;
 
- const upiURL = `upi://pay?pa=$vmtamilnadu1-1@okaxis&pn=$BCS&am=${total}&cu=INR&tn=${note}`;
+ const upiURL = `upi://pay?pa=vmtamilnadu1-1@okaxis&pn=BCS&am=${total}&cu=INR&tn=${note}`;
 const qrEncoded = encodeURIComponent(upiURL);
 const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${qrEncoded}`;
 
@@ -59,8 +59,9 @@ const qrURL = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${qrEnc
     // Show QR
     document.getElementById('upiQR').src = qrURL;
     document.getElementById('orderCodeText').innerText = `🧾 Order Code: ${orderCode}`;
-    document.getElementById('qr-section').style.display = 'block';
-  } else {
+document.getElementById('upiQR').style.display = 'block';  } 
+  
+  else {
     // Open UPI App
     window.open(upiURL, '_blank');
   }
