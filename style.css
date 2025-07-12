@@ -128,3 +128,11 @@ h2 {
   height: 250px;
   margin-top: 10px;
 }
+.footer {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    background-color: radial-gradient( circle 957px at 1.9% 48.3%,  rgba(28,61,247,1) 0%, rgba(215,64,64,1) 53.7%, rgba(215,64,64,1) 90% );
+    font-weight: bold;
+    width: 90%;
+}
