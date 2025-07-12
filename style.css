@@ -7,10 +7,14 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   color: #444;
 }
-
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #444;
+}
 .menu  {
   max-width: 500px;
     max-lenght: 800px;
